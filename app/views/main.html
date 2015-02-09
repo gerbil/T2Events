@@ -15,22 +15,10 @@
             <div class="col-md-6 desc">{{nextEvent.Location.DisplayName}}</div>
             <div class="col-md-6 subj">{{nextEvent.Subject}}</div>
             <div class="col-md-6 organizer">{{nextEvent.Organizer.EmailAddress.Name}}</div>
-            <div class="col-md-6 time">{{nextEvent.Start}} - {{nextEvent.End}}</div>
+            <div class="col-md-6 time">{{nextEvent.Start}} - {{nextEvent.End}} (LV time)</div>
 
-            <!--<table>
-                <tr><th>Location</th><th>Subject</th><th>Organizer</th><th>Time</th></tr>
-                <tr ng-repeat="meeting in events.value"><td>{{meeting.Location.DisplayName}}</td><td>{{meeting.Subject}}</td><td>{{meeting.Organizer.EmailAddress.Name}}</td><td>{{meeting.Start}}-{{meeting.End}}</td></tr>
-            </table>-->
         </div>
 
     </div>
-
-    <!--Status busy = Red border if meeting time = now
-    Room equipment from backend DB for this room
-    Time | Next meeting, time for the next meeting, Organizer, subject
-    <table>
-    <tr><th>Location</th><th>Subject</th><th>Organizer</th><th>Time</th></tr>
-    <tr ng-repeat="meeting in events.value"><td>{{meeting.Location.DisplayName}}</td><td>{{meeting.Subject}}</td><td>{{meeting.Organizer.EmailAddress.Name}}</td><td>{{meeting.Start}}-{{meeting.End}}</td></tr>
-    </table>-->
 
 </div>
