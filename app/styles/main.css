@@ -32,10 +32,19 @@ body {
     font-size: 2em;
 }
 
+.busy {
+    border: 1px solid rgba(128, 24, 14, 0.56);
+    padding: 2em;
+}
+
+.free {
+    border: 1px solid rgba(117, 245, 133, 0.56);
+}
+
 .center {
     position: fixed;
     width: 60%;
-    top: 30%;
+    top: 25%;
 }
 
 .head {
@@ -75,6 +84,11 @@ body {
     padding-left: 0.1em;
     font-size: 5.5em;
     border-right: 2px solid #363b41;
+    height: 1.5em;
+}
+
+.info {
+    width: 34em;
 }
 
 .info .next {

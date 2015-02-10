@@ -19,7 +19,7 @@ angular.module('t2EventsApp')
             $scope.currentTime = moment().format('HH:mm');
 
             // Create today date string for backend query
-            var today = moment().format('YYYY-MM-DDTHH:mm:SS');
+            var today = moment().format('YYYY-MM-DDTHH:mm:ss');
 
             // Create tomorrow date string for backend query
             var tomorrow = moment().format('YYYY-MM-DDT23:59:59');
@@ -34,18 +34,21 @@ angular.module('t2EventsApp')
                     if ($scope.nextEvent) {
                         $scope.nextEvent.Start = moment($scope.nextEvent.Start).format('HH:mm');
                         $scope.nextEvent.End = moment($scope.nextEvent.End).format('HH:mm');
-                        $scope.nextEvent.time = $scope.nextEvent.Start + '-' + $scope.nextEvent.End + ' (LV time)';
+                        $scope.nextEvent.time = $scope.nextEvent.Start + ' - ' + $scope.nextEvent.End + ' (LV time)';
                         $scope.meetingText = ($scope.nextEvent.Start) > $scope.currentTime ? 'Next meeting' : 'Current meeting';
 
                         var currentTime = moment($scope.currentTime,'HH:mm');
                         var startTime = moment($scope.nextEvent.Start,'HH:mm');
                         var endTime = moment($scope.nextEvent.End,'HH:mm');
 
+
                         //Meeting will start in, else meeting will end in
                         if (currentTime > startTime) {
-                            $scope.meetingWill = 'Will end in ' + moment.preciseDiff(currentTime, endTime);
+                            $scope.status = 'busy';
+                            $scope.meetingWill = 'Ends in ' + moment.preciseDiff(currentTime, endTime);
                         } else {
-                            $scope.meetingWill = 'Will start in ' + moment.preciseDiff(currentTime, startTime);
+                            $scope.status = 'free';
+                            $scope.meetingWill = 'Starts in ' + moment.preciseDiff(currentTime, startTime);
                         };
 
                     } else {
@@ -58,7 +61,7 @@ angular.module('t2EventsApp')
         refreshData();
 
         // Promise should be created to be deleted afterwards
-        var promise = $interval(refreshData, 25000);
+        var promise = $interval(refreshData, 100000);
 
         // Cancel interval on page changes
         $scope.$on('$destroy', function () {
