@@ -14,29 +14,47 @@ angular.module('t2EventsApp')
         // Today events +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         function refreshData() {
-            // We need current timestamp for display
-            var date = new Date();
-            var minutes = date.getMinutes();
-            minutes = minutes > 9 ? minutes : '0' + minutes;
-            $scope.currentTime = date.getHours() + ':' + minutes;
-            // Create today date string for backend query
-            var today = Date.today().toFormat('YYYY-MM-DDT');
-            // Add leading zeros and Z for timestamp outlook API
-            today = today + $scope.currentTime + ':00Z';
-            // Create tomorrow date string for backend query
-            var tomorrow = Date.today().toFormat('YYYY-MM-DDT23:59:59Z');
 
+            // We need current timestamp for display (HH24:MI with leading zeros)
+            $scope.currentTime = moment().format('HH:mm');
+
+            // Create today date string for backend query
+            var today = moment().format('YYYY-MM-DDTHH:mm:SS');
+
+            // Create tomorrow date string for backend query
+            var tomorrow = moment().format('YYYY-MM-DDT23:59:59');
+
+            // Rest API communication -> get calendarview using startdatetime and enddatetime
             Restangular.all('calendar').getList({'startDateTime': today, 'endDateTime': tomorrow})
                 .then(function (results) {
+                    // Fetch only one scheduled event
                     $scope.nextEvent = results[0].value[0];
+                    // If there are no events today -> skip, otherwise change timezone for LV or SWE, also change meetingText
+                    //TODO : auto timezone change
+                    if ($scope.nextEvent) {
+                        $scope.nextEvent.Start = moment($scope.nextEvent.Start).format('HH:mm');
+                        $scope.nextEvent.End = moment($scope.nextEvent.End).format('HH:mm');
+                        $scope.nextEvent.time = $scope.nextEvent.Start + '-' + $scope.nextEvent.End + ' (LV time)';
+                        $scope.meetingText = ($scope.nextEvent.Start) > $scope.currentTime ? 'Next meeting' : 'Current meeting';
 
-                    $scope.nextEvent.Start = new Date(Date.parse($scope.nextEvent.Start)).removeHours(1).toFormat('HH24:MI');
-                    $scope.nextEvent.End = new Date(Date.parse($scope.nextEvent.End)).removeHours(1).toFormat('HH24:MI');
+                        var currentTime = moment($scope.currentTime,'HH:mm');
+                        var startTime = moment($scope.nextEvent.Start,'HH:mm');
+                        var endTime = moment($scope.nextEvent.End,'HH:mm');
 
-                    $scope.meetingText = ($scope.nextEvent.Start) > $scope.currentTime ? 'Next meeting' : 'Current meeting';
+                        //Meeting will start in, else meeting will end in
+                        if (currentTime > startTime) {
+                            $scope.meetingWill = 'Will end in ' + moment.preciseDiff(currentTime, endTime);
+                        } else {
+                            $scope.meetingWill = 'Will start in ' + moment.preciseDiff(currentTime, startTime);
+                        };
+
+                    } else {
+                        $scope.meetingText = 'No more meetings today';
+                    }
                 });
-        };
+        }
 
+        // Auto start
         refreshData();
 
         // Promise should be created to be deleted afterwards
@@ -50,7 +68,6 @@ angular.module('t2EventsApp')
             }
         });
         // Data refresh end
-
 
 
     });

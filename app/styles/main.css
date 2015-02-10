@@ -82,7 +82,7 @@ body {
     color: #ffffff;
 }
 
-.info .desc, .info .subj, .info .organizer, .info .time {
+.info .desc, .info .subj, .info .organizer, .info .time, .info .will {
    padding-left: 2em;
    color: #9c9d9e;
 }
