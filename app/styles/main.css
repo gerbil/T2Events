@@ -32,12 +32,12 @@ body {
 }
 
     .busy {
-        border: 4px solid rgba(128, 24, 14, 0.56);
+        border: 6px solid rgba(128, 24, 14, 0.56);
         height: 1536px; /* Nexus 9 height */
     }
 
     .free {
-        border: 4px solid rgba(117, 245, 133, 0.56);
+        border: 6px solid rgba(117, 245, 133, 0.56);
         height: 1536px; /* Nexus 9 height */
     }
 
@@ -104,4 +104,8 @@ body {
 
     .info .next {
         color: #ffffff;
+    }
+
+    .info .will {
+        margin-top: 1em;
     }

@@ -19,7 +19,8 @@ angular.module('t2EventsApp')
             $scope.currentTime = moment().format('HH:mm');
 
             // Create today date string for backend query
-            var today = moment().format('YYYY-MM-DDTHH:mm:ss');
+            // LV settings
+            var today = moment().subtract(2, 'hour').format('YYYY-MM-DDTHH:mm:ss');
 
             // Create tomorrow date string for backend query
             var tomorrow = moment().format('YYYY-MM-DDT23:59:59');
@@ -32,7 +33,9 @@ angular.module('t2EventsApp')
                     // If there are no events today -> skip, otherwise change timezone for LV or SWE, also change meetingText
                     //TODO : auto timezone change
                     if ($scope.nextEvent) {
+                        // LV settings
                         $scope.nextEvent.Start = moment($scope.nextEvent.Start).format('HH:mm');
+                        // LV settings
                         $scope.nextEvent.End = moment($scope.nextEvent.End).format('HH:mm');
                         $scope.nextEvent.time = $scope.nextEvent.Start + ' - ' + $scope.nextEvent.End + ' (LV time)';
                         $scope.meetingText = ($scope.nextEvent.Start) > $scope.currentTime ? 'Next meeting' : 'Current meeting';
