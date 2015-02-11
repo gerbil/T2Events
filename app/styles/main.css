@@ -1,5 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,82 +19,89 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
-/* BG *******************************************************************/
+/* Main page *******************************************************************/
+
 body {
     width: 100%;
     height: 100%;
     background: #161b1f;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Tele2 slab', sans-serif;
     color: #e0e0de;
     overflow-x: hidden;
     font-size: 2em;
 }
 
-.busy {
-    border: 1px solid rgba(128, 24, 14, 0.56);
-    padding: 2em;
-}
+    .busy {
+        border: 4px solid rgba(128, 24, 14, 0.56);
+        height: 1536px; /* Nexus 9 height */
+    }
 
-.free {
-    border: 1px solid rgba(117, 245, 133, 0.56);
-}
+    .free {
+        border: 4px solid rgba(117, 245, 133, 0.56);
+        height: 1536px; /* Nexus 9 height */
+    }
 
 .center {
+    padding-left: 3em;
+    margin: 0;
     position: fixed;
-    width: 60%;
-    top: 25%;
+    width: 100%;
+    top: 20%;
 }
 
 .head {
-    margin-bottom: 2em;
+    margin-bottom: 4em;
+    font-size: 2em;
 }
 
-.location {
-    padding-left: 1em;
-}
-
-.resources {
-    padding-left: 3em;
-}
-
-    .resources span {
-        vertical-align: middle;
-        margin-right: 0.4em;
-        border-right: 1px solid #363b41;
-        padding-right: 0.4em;
+    .location {
+        padding-left: 0.5em;
     }
 
-    .resources span:last-child {
-        border: 0 none;
+    .resources {
+        padding-left: 2em;
     }
 
-    .resources span i {
-        margin: -0.5em 0 0 0.4em;
-        font-family: 'Open Sans', sans-serif;
-    }
+        .resources span {
+            margin-right: 0.4em;
+            padding-right: 0.4em;
+            border-right: 1px solid #363b41;
+            vertical-align: bottom;
+        }
+
+        .resources span:last-child {
+            border: 0 none;
+        }
+
+        .resources span i {
+            margin-left: 0.2em;
+            font-family: 'Trebuchet MS', sans-serif;
+            vertical-align: bottom;
+        }
 
 
-    .resources .glyphicon-facetime-video {
-        color: red;
-    }
+        .resources .red {
+            color: red;
+        }
 
-.currentTime {
-    padding-left: 0.1em;
-    font-size: 5.5em;
-    border-right: 2px solid #363b41;
-    height: 1.5em;
-}
 
 .info {
-    width: 34em;
+
 }
 
-.info .next {
-    padding-left: 2em;
-    color: #ffffff;
-}
+    .currentTime {
+        font-size: 11em;
+        border-right: 2px solid #363b41;
+        height: 1.5em;
+    }
 
-.info .desc, .info .subj, .info .organizer, .info .time, .info .will {
-   padding-left: 2em;
-   color: #9c9d9e;
-}
+    .info .next, .info .desc, .info .subj, .info .org, .info .time, .info .will {
+        padding-left: 2.5em;
+        font-size: 1.5em;
+        color: #9c9d9e;
+        line-height: 1.5em;
+    }
+
+    .info .next {
+        color: #ffffff;
+    }
