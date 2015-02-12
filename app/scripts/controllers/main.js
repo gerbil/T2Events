@@ -9,7 +9,7 @@
  */
 angular.module('t2EventsApp')
 
-    .controller('MainCtrl', function ($scope, Restangular, $interval) {
+    .controller('MainCtrl', function ($scope, Restangular, $interval, $compile) {
 
         // Today events +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -25,7 +25,7 @@ angular.module('t2EventsApp')
 
             // Create today date string for backend query
             // Minus 2 hours based on Outlook API
-            var today = moment().tz(timeZone).subtract(2,'hour').format('YYYY-MM-DDTHH:mm:ss');
+            var today = moment().tz(timeZone).subtract(2, 'hour').format('YYYY-MM-DDTHH:mm:ss');
 
             // Create tomorrow date string for backend query
             var tomorrow = moment().tz(timeZone).format('YYYY-MM-DDT23:59:59');
@@ -44,9 +44,9 @@ angular.module('t2EventsApp')
                         $scope.nextEvent.time = $scope.nextEvent.Start + ' - ' + $scope.nextEvent.End;
                         $scope.meetingText = ($scope.nextEvent.Start) > $scope.currentTime ? 'Next meeting' : 'Current meeting';
 
-                        var currentTime = moment($scope.currentTime,'HH:mm');
-                        var startTime = moment($scope.nextEvent.Start,'HH:mm');
-                        var endTime = moment($scope.nextEvent.End,'HH:mm');
+                        var currentTime = moment($scope.currentTime, 'HH:mm');
+                        var startTime = moment($scope.nextEvent.Start, 'HH:mm');
+                        var endTime = moment($scope.nextEvent.End, 'HH:mm');
 
 
                         //Meeting will start in, else meeting will end in
@@ -56,7 +56,8 @@ angular.module('t2EventsApp')
                         } else {
                             $scope.status = 'free';
                             $scope.meetingWill = 'Starts in ' + moment.preciseDiff(currentTime, startTime);
-                        };
+                        }
+                        ;
 
                     } else {
                         $scope.meetingText = 'No more meetings today';
@@ -79,8 +80,9 @@ angular.module('t2EventsApp')
         });
         // Data refresh end
 
+        $scope.setCurrent = function(value){
+            console.info(value);
+        }
 
-    });
-
-
+    })
 

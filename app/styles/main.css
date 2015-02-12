@@ -59,8 +59,9 @@ body {
     }
 
     .resources {
-        padding-left: 1em;
-    }
+         padding-left: 1em;
+         color: #929496;
+     }
 
         .resources span {
             margin-right: 0.4em;
@@ -82,8 +83,22 @@ body {
 
         .resources .red {
             color: red;
+            border-right: 1px solid #596072;
         }
 
+        .resources .tooltip {
+            font-size: 0.5em;
+            margin: -0.5em 0 0 -0.7em;
+        }
+
+            .resources .tooltip i {
+                border-right: 1px solid #192229;
+                padding: 0.5em;
+            }
+
+            .resources .tooltip i:last-child {
+                 border: 0 none;
+             }
 
 .info {
 
