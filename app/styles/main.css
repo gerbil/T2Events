@@ -51,7 +51,7 @@ body {
 
 .head {
     margin-bottom: 4em;
-    font-size: 2em;
+    font-size: 2.5em;
 }
 
     .location {
@@ -59,13 +59,13 @@ body {
     }
 
     .resources {
-        padding-left: 2em;
+        padding-left: 1em;
     }
 
         .resources span {
             margin-right: 0.4em;
             padding-right: 0.4em;
-            border-right: 1px solid #363b41;
+            border-right: 1px solid #596072;
             vertical-align: bottom;
         }
 
@@ -92,14 +92,13 @@ body {
     .currentTime {
         font-size: 11em;
         border-right: 2px solid #363b41;
-        height: 1.5em;
+        height: 1.7em;
     }
 
     .info .next, .info .desc, .info .subj, .info .org, .info .time, .info .will {
-        padding-left: 2.5em;
-        font-size: 1.5em;
+        padding-left: 1em;
+        font-size: 2em;
         color: #9c9d9e;
-        line-height: 1.5em;
     }
 
     .info .next {

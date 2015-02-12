@@ -15,15 +15,20 @@ angular.module('t2EventsApp')
 
         function refreshData() {
 
-            // We need current timestamp for display (HH24:MI with leading zeros)
-            $scope.currentTime = moment().format('HH:mm');
+            //Determines the time zone of the browser client
+            //tz lib or ECMA 6 Intl API for modern browsers
+            //var tz = jstz.determine();
+            var timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+            // We need current timestamp for display
+            $scope.currentTime = moment().tz(timeZone).format('HH:mm');
 
             // Create today date string for backend query
-            // LV settings
-            var today = moment().subtract(2, 'hour').format('YYYY-MM-DDTHH:mm:ss');
+            // Minus 2 hours based on Outlook API
+            var today = moment().tz(timeZone).subtract(2,'hour').format('YYYY-MM-DDTHH:mm:ss');
 
             // Create tomorrow date string for backend query
-            var tomorrow = moment().format('YYYY-MM-DDT23:59:59');
+            var tomorrow = moment().tz(timeZone).format('YYYY-MM-DDT23:59:59');
 
             // Rest API communication -> get calendarview using startdatetime and enddatetime
             Restangular.all('calendar').getList({'startDateTime': today, 'endDateTime': tomorrow})
@@ -33,11 +38,10 @@ angular.module('t2EventsApp')
                     // If there are no events today -> skip, otherwise change timezone for LV or SWE, also change meetingText
                     //TODO : auto timezone change
                     if ($scope.nextEvent) {
-                        // LV settings
+                        // LV settings for a timezone
                         $scope.nextEvent.Start = moment($scope.nextEvent.Start).format('HH:mm');
-                        // LV settings
                         $scope.nextEvent.End = moment($scope.nextEvent.End).format('HH:mm');
-                        $scope.nextEvent.time = $scope.nextEvent.Start + ' - ' + $scope.nextEvent.End + ' (LV time)';
+                        $scope.nextEvent.time = $scope.nextEvent.Start + ' - ' + $scope.nextEvent.End;
                         $scope.meetingText = ($scope.nextEvent.Start) > $scope.currentTime ? 'Next meeting' : 'Current meeting';
 
                         var currentTime = moment($scope.currentTime,'HH:mm');
