@@ -7,20 +7,20 @@
                 <span class="glyphicon glyphicon-user"><i>x8</i></span>
                 <span class="glyphicon glyphicon-facetime-video dropdown dropdown-toggle {{beamer}}" dropdown dropdown-toggle>
                       <ul class="dropdown-menu">
-                          <li><i class='glyphicon glyphicon-ban-circle' ng-click="setStatus('beamer','broken')"/></li>
-                          <li><i class='glyphicon glyphicon-ok-circle' ng-click="setStatus('beamer','working')"/></li>
+                          <li ng-click="setStatus('beamer','broken')"><i class='glyphicon glyphicon-ban-circle'/></li>
+                          <li ng-click="setStatus('beamer','working')"><i class='glyphicon glyphicon-ok-circle'/></li>
                       </ul>
                 </span>
                 <span class="glyphicon glyphicon-blackboard dropdown dropdown-toggle {{whiteboard}}" dropdown dropdown-toggle>
                       <ul class="dropdown-menu">
-                          <li><i class='glyphicon glyphicon-ban-circle' ng-click="setStatus('whiteboard','broken')"/></li>
-                          <li><i class='glyphicon glyphicon-ok-circle' ng-click="setStatus('whiteboard','working')"/></li>
+                          <li ng-click="setStatus('whiteboard','broken')"><i class='glyphicon glyphicon-ban-circle'/></li>
+                          <li ng-click="setStatus('whiteboard','working')"><i class='glyphicon glyphicon-ok-circle' /></li>
                       </ul>
                 </span>
                 <span class="glyphicon glyphicon-lamp dropdown dropdown-toggle {{light}}" dropdown dropdown-toggle>
                       <ul class="dropdown-menu">
-                          <li><i class='glyphicon glyphicon-ban-circle' ng-click="setStatus('light','broken')"/></li>
-                          <li><i class='glyphicon glyphicon-ok-circle' ng-click="setStatus('light','working')"/></li>
+                          <li ng-click="setStatus('light','broken')"><i class='glyphicon glyphicon-ban-circle'/></li>
+                          <li ng-click="setStatus('light','working')"><i class='glyphicon glyphicon-ok-circle'/></li>
                       </ul>
                 </span>
             </div>
