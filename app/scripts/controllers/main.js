@@ -80,8 +80,8 @@ angular.module('t2EventsApp')
         });
         // Data refresh end
 
-        $scope.setCurrent = function(value){
-            console.info(value);
+        $scope.beamerSetMode = function(value){
+            $scope.beamerStatus = value == 1 ? 'broken' : 'working';
         }
 
     })

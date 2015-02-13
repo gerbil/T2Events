@@ -81,7 +81,7 @@ body {
         }
 
 
-        .resources .red {
+        .resources .broken {
             color: red;
             border-right: 1px solid #596072;
         }
@@ -105,7 +105,7 @@ body {
 }
 
     .currentTime {
-        font-size: 11em;
+        font-size: 10em;
         border-right: 2px solid #363b41;
         height: 1.7em;
     }
@@ -122,4 +122,42 @@ body {
 
     .info .will {
         margin-top: 1em;
+    }
+
+/* RESOURCES *******************************************************************/
+
+ul.dropdown-menu {
+    margin: -175px -125px 0px -82px;
+    height: 65px;
+    position: relative;
+    background: #2e3336;
+    color: #f8f8f8;
+}
+
+ul.dropdown-menu li {
+     font-size: 3em;
+     display: inline-block;
+     border-right: 1px solid #000;
+     outline: none !important;
+     margin: -5px -5px 0 0;
+     height: 65px;
+     padding: 10px 0 0 17px;
+     width: 100px;
+ }
+
+    ul.dropdown-menu li:last-child {
+        border: 0 none;
+    }
+
+    ul.dropdown-menu li i {
+        height: 70px;
+        font-family: inherit;
+    }
+
+    ul.dropdown-menu li i:hover {
+        outline: none !important
+    }
+
+    ul.dropdown-menu li i.ng-click-active {
+        outline: none !important
     }

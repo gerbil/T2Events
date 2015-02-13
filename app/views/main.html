@@ -5,10 +5,10 @@
             <div class="col-md-6 location">Versailles</div>
             <div class="col-md-6 resources">
                 <span class="glyphicon glyphicon-user"><i>x8</i></span>
-                <span class="glyphicon glyphicon-facetime-video dropdown dropdown-toggle" dropdown dropdown-toggle>
+                <span class="glyphicon glyphicon-facetime-video dropdown dropdown-toggle {{beamerStatus}}" dropdown dropdown-toggle>
                       <ul class="dropdown-menu">
-                          <li><a ng-click="setCurrent('broken')">1</a></li>
-                          <li><a ng-click="setCurrent('fixed')">2</a></li>
+                          <li><i class='glyphicon glyphicon-ban-circle' ng-click="beamerSetMode(1)"/></li>
+                          <li><i class='glyphicon glyphicon-ok-circle' ng-click="beamerSetMode(0)"/></li>
                       </ul>
                 </span>
                 <span class="glyphicon glyphicon-blackboard"/>
