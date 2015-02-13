@@ -5,14 +5,24 @@
             <div class="col-md-6 location">Versailles</div>
             <div class="col-md-6 resources">
                 <span class="glyphicon glyphicon-user"><i>x8</i></span>
-                <span class="glyphicon glyphicon-facetime-video dropdown dropdown-toggle {{beamerStatus}}" dropdown dropdown-toggle>
+                <span class="glyphicon glyphicon-facetime-video dropdown dropdown-toggle {{beamer}}" dropdown dropdown-toggle>
                       <ul class="dropdown-menu">
-                          <li><i class='glyphicon glyphicon-ban-circle' ng-click="beamerSetMode(1)"/></li>
-                          <li><i class='glyphicon glyphicon-ok-circle' ng-click="beamerSetMode(0)"/></li>
+                          <li><i class='glyphicon glyphicon-ban-circle' ng-click="setStatus('beamer','broken')"/></li>
+                          <li><i class='glyphicon glyphicon-ok-circle' ng-click="setStatus('beamer','working')"/></li>
                       </ul>
                 </span>
-                <span class="glyphicon glyphicon-blackboard"/>
-                <span class="glyphicon glyphicon-lamp"/>
+                <span class="glyphicon glyphicon-blackboard dropdown dropdown-toggle {{whiteboard}}" dropdown dropdown-toggle>
+                      <ul class="dropdown-menu">
+                          <li><i class='glyphicon glyphicon-ban-circle' ng-click="setStatus('whiteboard','broken')"/></li>
+                          <li><i class='glyphicon glyphicon-ok-circle' ng-click="setStatus('whiteboard','working')"/></li>
+                      </ul>
+                </span>
+                <span class="glyphicon glyphicon-lamp dropdown dropdown-toggle {{light}}" dropdown dropdown-toggle>
+                      <ul class="dropdown-menu">
+                          <li><i class='glyphicon glyphicon-ban-circle' ng-click="setStatus('light','broken')"/></li>
+                          <li><i class='glyphicon glyphicon-ok-circle' ng-click="setStatus('light','working')"/></li>
+                      </ul>
+                </span>
             </div>
         </div>
 

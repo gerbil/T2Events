@@ -80,8 +80,17 @@ angular.module('t2EventsApp')
         });
         // Data refresh end
 
-        $scope.beamerSetMode = function(value){
-            $scope.beamerStatus = value == 1 ? 'broken' : 'working';
+
+
+        // Retrieve resource statuses from local storage
+        $scope.beamer = localStorage.getItem('beamer') ? localStorage.getItem('beamer') : 'working';
+        $scope.whiteboard = localStorage.getItem('whiteboard') ? localStorage.getItem('whiteboard') : 'working';
+        $scope.light = localStorage.getItem('light') ? localStorage.getItem('light') : 'working';
+
+        $scope.setStatus = function(resource, status){
+            $scope[resource] = status;
+            // Put status into storage
+            localStorage.setItem(resource, status);
         }
 
     })
