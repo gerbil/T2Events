@@ -58,47 +58,72 @@ body {
         padding-left: 0.5em;
     }
 
+    /* RESOURCES *******************************************************************/
+
     .resources {
-         padding-left: 1em;
-         color: #929496;
+        padding-left: 0.5em;
+        color: #929496;
+    }
+
+    .resources span {
+        margin-right: 0.3em;
+        padding-right: 0.1em;
+        border-right: 1px solid #596072;
+        vertical-align: top;
+    }
+
+    .resources span:last-child {
+        border: 0 none;
+    }
+
+    .resources span.icon-user {
+        padding-right: 0.3em;
      }
 
-        .resources span {
-            margin-right: 0.4em;
-            padding-right: 0.4em;
-            border-right: 1px solid #596072;
-            vertical-align: bottom;
-        }
+    .resources span.icon-camera {
+        margin-left: -0.2em;
+    }
 
-        .resources span:last-child {
-            border: 0 none;
-        }
+    .resources .broken {
+        color: red;
+        border-right: 1px solid #596072;
+    }
 
-        .resources span i {
-            margin-left: 0.2em;
-            font-family: 'Trebuchet MS', sans-serif;
-            vertical-align: bottom;
-        }
+    ul.dropdown-menu {
+        margin: -180px 0 0 -45px;
+        height: 65px;
+        width: 200px;
+        background: #2e3336;
+        color: #f8f8f8;
+    }
 
+    ul.dropdown-menu li {
+        font-size: 3em;
+        display: inline-block;
+        border-right: 1px solid #000;
+        outline: none !important;
+        margin: -5px -5px 0 0;
+        height: 65px;
+        padding: 0px 0 0 20px;
+        width: 100px;
+    }
 
-        .resources .broken {
-            color: red;
-            border-right: 1px solid #596072;
-        }
+    ul.dropdown-menu li:last-child {
+        border: 0 none;
+    }
 
-        .resources .tooltip {
-            font-size: 0.5em;
-            margin: -0.5em 0 0 -0.7em;
-        }
+    ul.dropdown-menu li i {
+        height: 70px;
+        font-family: inherit;
+    }
 
-            .resources .tooltip i {
-                border-right: 1px solid #192229;
-                padding: 0.5em;
-            }
+    ul.dropdown-menu li i:hover {
+        outline: none !important
+    }
 
-            .resources .tooltip i:last-child {
-                 border: 0 none;
-             }
+    ul.dropdown-menu li i.ng-click-active {
+        outline: none !important
+    }
 
 .info {
 
@@ -124,40 +149,4 @@ body {
         margin-top: 1em;
     }
 
-/* RESOURCES *******************************************************************/
 
-ul.dropdown-menu {
-    margin: -175px -125px 0px -82px;
-    height: 65px;
-    position: relative;
-    background: #2e3336;
-    color: #f8f8f8;
-}
-
-ul.dropdown-menu li {
-     font-size: 3em;
-     display: inline-block;
-     border-right: 1px solid #000;
-     outline: none !important;
-     margin: -5px -5px 0 0;
-     height: 65px;
-     padding: 10px 0 0 17px;
-     width: 100px;
- }
-
-    ul.dropdown-menu li:last-child {
-        border: 0 none;
-    }
-
-    ul.dropdown-menu li i {
-        height: 70px;
-        font-family: inherit;
-    }
-
-    ul.dropdown-menu li i:hover {
-        outline: none !important
-    }
-
-    ul.dropdown-menu li i.ng-click-active {
-        outline: none !important
-    }
