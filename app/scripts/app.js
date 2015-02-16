@@ -35,6 +35,6 @@ angular
                 redirectTo: '/'
             });
 
-        RestangularProvider.setBaseUrl('http://10.30.60.165:3000/rooms');
+        RestangularProvider.setBaseUrl('http://10.30.60.165:3000');
 
     });

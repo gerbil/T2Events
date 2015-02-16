@@ -31,7 +31,7 @@ angular.module('t2EventsApp')
             var tomorrow = moment().tz(timeZone).format('YYYY-MM-DDT23:59:59');
 
             // Rest API communication -> get calendarview using startdatetime and enddatetime
-            Restangular.all('calendar').getList({'startDateTime': today, 'endDateTime': tomorrow})
+            Restangular.all('rooms/calendar').getList({'startDateTime': today, 'endDateTime': tomorrow})
                 .then(function (results) {
                     // Fetch only one scheduled event
                     $scope.nextEvent = results[0].value[0];
@@ -81,16 +81,26 @@ angular.module('t2EventsApp')
         // Data refresh end
 
 
-
         // Retrieve resource statuses from local storage
         $scope.beamer = localStorage.getItem('beamer') ? localStorage.getItem('beamer') : 'working';
         $scope.whiteboard = localStorage.getItem('whiteboard') ? localStorage.getItem('whiteboard') : 'working';
         $scope.light = localStorage.getItem('light') ? localStorage.getItem('light') : 'working';
 
-        $scope.setStatus = function(resource, status){
+        $scope.setStatus = function (resource, status) {
             $scope[resource] = status;
             // Put status into storage
             localStorage.setItem(resource, status);
+
+            // Send email if broken
+            if (status == 'broken') {
+                var post = {'room': 'Versailles', 'resource': resource};
+                // Rest API communication -> send email to ServiceDesk with room name and resource info
+                Restangular.all('broken').post(post)
+                    .then(function (results) {
+                        console.info(results);
+                    });
+            }
+
         }
 
     })
