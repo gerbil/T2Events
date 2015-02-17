@@ -9,7 +9,7 @@
  */
 angular.module('t2EventsApp')
 
-    .controller('MainCtrl', function ($scope, Restangular, $interval, $compile) {
+    .controller('MainCtrl', function ($scope, Restangular, $interval, $location) {
 
         // Today events +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -48,7 +48,6 @@ angular.module('t2EventsApp')
                         var startTime = moment($scope.nextEvent.Start, 'HH:mm');
                         var endTime = moment($scope.nextEvent.End, 'HH:mm');
 
-
                         //Meeting will start in, else meeting will end in
                         if (currentTime > startTime) {
                             $scope.status = 'busy';
@@ -57,7 +56,6 @@ angular.module('t2EventsApp')
                             $scope.status = 'free';
                             $scope.meetingWill = 'Starts in ' + moment.preciseDiff(currentTime, startTime);
                         }
-                        ;
 
                     } else {
                         $scope.meetingText = 'No more meetings today';
@@ -80,7 +78,6 @@ angular.module('t2EventsApp')
         });
         // Data refresh end
 
-
         // Retrieve resource statuses from local storage
         $scope.beamer = localStorage.getItem('beamer') ? localStorage.getItem('beamer') : 'working';
         $scope.whiteboard = localStorage.getItem('whiteboard') ? localStorage.getItem('whiteboard') : 'working';
@@ -92,16 +89,32 @@ angular.module('t2EventsApp')
             localStorage.setItem(resource, status);
 
             // Send email if broken
-            if (status == 'broken') {
+            if (status === 'broken') {
                 var post = {'room': 'Versailles', 'resource': resource};
                 // Rest API communication -> send email to ServiceDesk with room name and resource info
                 Restangular.all('broken').post(post)
-                    .then(function (results) {
-                        console.info(results);
+                    .then(function () {
+                        //console.info(results);
                     });
             }
+        };
 
-        }
+        $scope.openInfo = function(view) {
+            $location.path(view); // path not hash
+            //console.info('clicked for a view -> ' + view);
+        };
 
     })
+
+    // event stopPropagation directive to stop click event from firing parent's click events
+    .directive('stopEvent', function () {
+        return {
+            restrict: 'A',
+            link: function (scope, element, attr) {
+                element.bind('click', function (e) {
+                    e.stopPropagation();
+                });
+            }
+        };
+    });
 

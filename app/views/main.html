@@ -1,23 +1,23 @@
-<div ng-controller="MainCtrl" class="container-fluid {{status}}">
+<div ng-controller="MainCtrl" class="container-fluid {{status}}" ng-click="openInfo('info')">
 
     <div class="center">
         <div class="head">
             <div class="col-md-6 location">Versailles</div>
             <div class="col-md-6 resources">
                 <span class="icon-user">x8</span>
-                <span class="icon-camera dropdown dropdown-toggle {{beamer}}" dropdown dropdown-toggle>
+                <span class="icon-camera dropdown dropdown-toggle {{beamer}}" dropdown dropdown-toggle stop-event>
                       <ul class="dropdown-menu">
                           <li ng-click="setStatus('beamer','broken')"><i class='icon-alert'/></li>
                           <li ng-click="setStatus('beamer','working')"><i class='icon-thumbs-up'/></li>
                       </ul>
                 </span>
-                <span class="icon-whiteboard dropdown dropdown-toggle {{whiteboard}}" dropdown dropdown-toggle>
+                <span class="icon-whiteboard dropdown dropdown-toggle {{whiteboard}}" dropdown dropdown-toggle stop-event>
                       <ul class="dropdown-menu">
                           <li ng-click="setStatus('whiteboard','broken')"><i class='icon-alert'/></li>
                           <li ng-click="setStatus('whiteboard','working')"><i class='icon-thumbs-up' /></li>
                       </ul>
                 </span>
-                <span class="icon-light dropdown dropdown-toggle {{light}}" dropdown dropdown-toggle>
+                <span class="icon-light dropdown dropdown-toggle {{light}}" dropdown dropdown-toggle stop-event>
                       <ul class="dropdown-menu">
                           <li ng-click="setStatus('light','broken')"><i class='icon-alert'/></li>
                           <li ng-click="setStatus('light','working')"><i class='icon-thumbs-up'/></li>

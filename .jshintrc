@@ -17,7 +17,6 @@
   "strict": true,
   "trailing": true,
   "smarttabs": true,
-  "moment" : false,
   "globals": {
     "angular": false
   }
