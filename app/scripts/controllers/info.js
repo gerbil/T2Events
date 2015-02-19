@@ -9,7 +9,7 @@
  */
 angular.module('t2EventsApp')
 
-    .controller('InfoCtrl', function ($scope, Restangular) {
+    .controller('InfoCtrl', function ($scope, Restangular, $location) {
         //Determines the time zone of the browser client
         //tz lib or ECMA 6 Intl API for modern browsers
         //var tz = jstz.determine();
@@ -27,4 +27,10 @@ angular.module('t2EventsApp')
                 // Fetch only one scheduled event
                 $scope.todayEvents = results[0];
             });
+
+        $scope.openHome = function() {
+            $location.path('home'); // path not hash
+            //console.info('clicked for a view -> ' + view);
+        };
+
     });

@@ -99,9 +99,16 @@ angular.module('t2EventsApp')
             }
         };
 
-        $scope.openInfo = function(view) {
-            $location.path(view); // path not hash
-            //console.info('clicked for a view -> ' + view);
+        $scope.openInfo = function() {
+            $location.path('info'); // path not hash
+        };
+
+        $scope.fullScreen = function() {
+            if (screenfull.enabled) {
+                screenfull.request();
+            } else {
+                // Ignore or do something else
+            }
         };
 
     })

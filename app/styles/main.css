@@ -22,8 +22,6 @@ time, mark, audio, video {
 /* Main page *******************************************************************/
 
 body {
-    width: 100%;
-    height: 100%;
     background: #161b1f;
     font-family: 'Tele2 slab', sans-serif;
     color: #e0e0de;
@@ -32,13 +30,13 @@ body {
 }
 
     .busy {
-        border: 6px solid rgba(128, 24, 14, 0.56);
-        height: 1536px; /* Nexus 9 height */
+        border: 15px solid rgba(128, 24, 14, 0.56);
+        height: 1390px; /* Nexus 9 real site height */
     }
 
     .free {
-        border: 6px solid rgba(117, 245, 133, 0.56);
-        height: 1536px; /* Nexus 9 height */
+        border: 15px solid rgba(117, 245, 133, 0.56);
+        height: 1390px; /* Nexus 9 real site height */
     }
 
 .center {
@@ -149,4 +147,9 @@ body {
         margin-top: 1em;
     }
 
-
+#fullScreen {
+    background: transparent;
+    border: 0 none;
+    float: right;
+    color: transparent;
+}

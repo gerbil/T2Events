@@ -1,4 +1,4 @@
-<div ng-controller="MainCtrl" class="container-fluid {{status}}" ng-click="openInfo('info')">
+<div ng-controller="MainCtrl" class="container-fluid {{status}}" ng-click="openInfo()">
 
     <div class="center">
         <div class="head">
@@ -37,5 +37,7 @@
             <div class="col-md-6 will">{{meetingWill}}</div>
         </div>
     </div>
+
+    <button id="fullScreen" ng-click="fullScreen()" stop-event>+</button>
 
 </div>

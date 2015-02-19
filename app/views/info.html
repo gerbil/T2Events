@@ -1,12 +1,8 @@
-<div ng-controller="InfoCtrl">
-    <table>
-        <tr>
-            <th>Subject</th>
-            <th>Time</th>
-        </tr>
-        <tr ng-repeat="event in todayEvents.value | orderBy:'Start':false">
-            <td>{{event.Subject}}</td>
-            <td>{{event.Start | date:'HH:mm' : 'UTC+1'}}</td>
+<div ng-controller="InfoCtrl" ng-click="openHome()">
+    <table class="events">
+        <tr ng-repeat="event in todayEvents.value | orderBy:'Start':false" class="event">
+            <td class="eventSubject">{{event.Subject}}</td>
+            <td class="eventTime">{{event.Start | date:'HH:mm' : 'UTC+1'}}</td>
         </tr>
     </table>
 </div>
