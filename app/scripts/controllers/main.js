@@ -52,12 +52,15 @@ angular.module('t2EventsApp')
                         if (currentTime > startTime) {
                             $scope.status = 'busy';
                             $scope.meetingWill = 'Ends in ' + moment.preciseDiff(currentTime, endTime);
-                        } else {
+                        } else if (startTime > currentTime) {
                             $scope.status = 'free';
                             $scope.meetingWill = 'Starts in ' + moment.preciseDiff(currentTime, startTime);
+                        } else {
+                            $scope.meetingWill = '';
                         }
 
                     } else {
+                        $scope.status = 'free noMore';
                         $scope.meetingText = 'No more meetings today';
                     }
                 });
@@ -67,7 +70,7 @@ angular.module('t2EventsApp')
         refreshData();
 
         // Promise should be created to be deleted afterwards
-        var promise = $interval(refreshData, 5000);
+        var promise = $interval(refreshData, 100000);
 
         // Cancel interval on page changes
         $scope.$on('$destroy', function () {

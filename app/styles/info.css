@@ -5,6 +5,8 @@
 
 .event {
     background: #2e3336;
+    border-bottom: 1px solid #eee;
+    font-size: 2em;
 }
 
 .eventSubject, .eventTime {
