@@ -67,7 +67,7 @@ angular.module('t2EventsApp')
         refreshData();
 
         // Promise should be created to be deleted afterwards
-        var promise = $interval(refreshData, 100000);
+        var promise = $interval(refreshData, 5000);
 
         // Cancel interval on page changes
         $scope.$on('$destroy', function () {
@@ -101,14 +101,6 @@ angular.module('t2EventsApp')
 
         $scope.openInfo = function() {
             $location.path('info'); // path not hash
-        };
-
-        $scope.fullScreen = function() {
-            if (screenfull.enabled) {
-                screenfull.request();
-            } else {
-                // Ignore or do something else
-            }
         };
 
     })
