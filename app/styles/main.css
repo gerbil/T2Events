@@ -1,3 +1,12 @@
+@font-face{
+    font-family: 'Tele2SlabWeb-V2-Regular';
+    src: url('/styles/fonts/Tele2SlabWeb-V2-Regular.eot');
+    src: url('/styles/fonts/Tele2SlabWeb-V2-Regular.eot?#iefix') format('embedded-opentype'),
+    url('/styles/fonts/Tele2SlabWeb-V2-Regular.woff') format('woff'),
+    url('/styles/fonts/Tele2SlabWeb-V2-Regular.ttf') format('truetype'),
+    url('/styles/fonts/Tele2SlabWeb-V2-Regular.svg#webfont') format('svg');
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -23,7 +32,7 @@ time, mark, audio, video {
 
 body {
     background: #161b1f;
-    font-family: 'Tele2 slab', sans-serif;
+    font-family: 'Tele2SlabWeb-V2-Regular', sans-serif;
     color: #ffffff;
     overflow-x: hidden;
     font-size: 2em;
