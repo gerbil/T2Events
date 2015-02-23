@@ -1,8 +1,24 @@
-<div ng-controller="InfoCtrl" ng-click="openHome()">
-    <table class="events">
-        <tr ng-repeat="event in todayEvents.value | orderBy:'Start':false" class="event">
-            <td class="eventSubject">{{event.Subject}}</td>
-            <td class="eventTime">{{event.Start | date:'HH:mm' : 'UTC+1'}}</td>
-        </tr>
-    </table>
+<div ng-controller="InfoCtrl" ng-click="openHome()" class="info">
+    <div class="head">
+        <div class="dateTime">12:30, Tuesday</div>
+    </div>
+
+    <div class="menu">
+        <ul>
+            <li ng-class="{active: isActive('today')}" stop-event>Today</li>
+            <li ng-class="{active: isActive('tomorrow')}" stop-event>Tomorrow</li>
+            <li ng-class="{active: isActive('week')}" stop-event>This week</li>
+        </ul>
+    </div>
+
+    <div class="list">
+        <table class="events">
+            <tr ng-repeat="event in todayEvents.value | orderBy:'Start':false" class="event">
+                <td class="icon"><i class="glyphicon glyphicon-calendar" /></td>
+                <td class="eventSubject">{{event.Subject}}</td>
+                <td class="eventTime">{{event.Start | date:'HH:mm' : 'UTC+1'}}</td>
+            </tr>
+        </table>
+    </div>
+
 </div>

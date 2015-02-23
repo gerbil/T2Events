@@ -33,4 +33,19 @@ angular.module('t2EventsApp')
             //console.info('clicked for a view -> ' + view);
         };
 
+    })
+
+    .directive('toggleActive', function() {
+        return {
+            link: function(scope, elem, attrs) {
+                elem.on("click", function() {
+                    console.info(attrs);
+                    if(attrs.class != 'active') {
+                        elem.addClass('active');
+                    } else {
+                        elem.removeClass('active');
+                    }
+                });
+            }
+        };
     });
