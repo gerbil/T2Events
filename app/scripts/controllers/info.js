@@ -33,19 +33,23 @@ angular.module('t2EventsApp')
             //console.info('clicked for a view -> ' + view);
         };
 
-    })
-
-    .directive('toggleActive', function() {
-        return {
-            link: function(scope, elem, attrs) {
-                elem.on("click", function() {
-                    console.info(attrs);
-                    if(attrs.class != 'active') {
-                        elem.addClass('active');
-                    } else {
-                        elem.removeClass('active');
-                    }
-                });
-            }
+        $scope.today = function() {
+            $('.today').addClass('active');
+            $('.tomorrow').removeClass('active');
+            $('.week').removeClass('active');
         };
-    });
+
+        $scope.tomorrow = function() {
+            $('.today').removeClass('active');
+            $('.tomorrow').addClass('active');
+            $('.week').removeClass('active');
+        };
+
+        $scope.week = function() {
+            $('.today').removeClass('active');
+            $('.tomorrow').removeClass('active');
+            $('.week').addClass('active');
+        };
+
+
+    })

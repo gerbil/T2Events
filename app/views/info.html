@@ -5,9 +5,9 @@
 
     <div class="menu">
         <ul>
-            <li ng-class="{active: isActive('today')}" stop-event>Today</li>
-            <li ng-class="{active: isActive('tomorrow')}" stop-event>Tomorrow</li>
-            <li ng-class="{active: isActive('week')}" stop-event>This week</li>
+            <li ng-click="today()" class="today active" stop-event>Today</li>
+            <li ng-click="tomorrow()" class="tomorrow" stop-event>Tomorrow</li>
+            <li ng-click="week()" class="week" stop-event>This week</li>
         </ul>
     </div>
 
